@@ -137,14 +137,14 @@
       "nombre_completo": "Ricardo Vidal",
       "direccion": "Avenida QRS, Ciudad B",
       "celular": "555-5671",
-      "codigo_adn": "10000000001111111111",
+      "codigo_adn": "10100111101010101111",
       "id": "20"
     },
     {
       "nombre_completo": "Laura Franklin",
       "direccion": "asddasd",
       "celular": "21414214",
-      "codigo_adn": "10100001101010100101",
+      "codigo_adn": "10100111101010100111",
       "id": "21"
     },
     {
