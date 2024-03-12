@@ -7,30 +7,36 @@ console.log(ciudadanosList)
 const loadFormCiudadano=()=>{
     const formCiudadanos = document.getElementById('show-info');
     formCiudadanos.innerHTML=`
-        <form id="registroCiudadanoForm">
-            <div class="mb-3">
-                <label for="nombreCiudadanoLabel" class="form-label">Nombre: </label>
-                <input type="text" class="form-control" id="nombreCiudadanoInput" required>
-            </div>
+        <div class="col-md-15">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <form id="registroCiudadanoForm">
+                        <div class="mb-3">
+                            <label for="nombreCiudadanoLabel" class="form-label">Nombre: </label>
+                            <input type="text" class="form-control" id="nombreCiudadanoInput" required>
+                        </div>
 
-            <div class="mb-3">
-                <label for="codigoAdnCiudadanoLabel" class="form-label">Codigo ADN(Ingrese solamente 1 Y 0): </label>
-                <input type="number" class="form-control" id="codigoAdnCiudadanoInput" minlength="20" required><br>
-            </div>
+                        <div class="mb-3">
+                            <label for="codigoAdnCiudadanoLabel" class="form-label">Codigo ADN(Ingrese solamente 1 Y 0): </label>
+                            <input type="number" class="form-control" id="codigoAdnCiudadanoInput" minlength="20" required><br>
+                        </div>
 
-            <div class="mb-3">
-                <label for="celularCiudadanoLabel" class="form-label">Celular: </label>
-                <input type="number" class="form-control" id="celularCiudadanoInput" required>
-            </div>
+                        <div class="mb-3">
+                            <label for="celularCiudadanoLabel" class="form-label">Celular: </label>
+                            <input type="number" class="form-control" id="celularCiudadanoInput" required>
+                        </div>
 
-            <div class="mb-3">
-                <label for="direccionCiudadanoLabel" class="form-label">Direccion: </label>
-                <input type="text" class="form-control" id="direccionCiudadanoInput" required>
-            </div>
+                        <div class="mb-3">
+                            <label for="direccionCiudadanoLabel" class="form-label">Direccion: </label>
+                            <input type="text" class="form-control" id="direccionCiudadanoInput" required>
+                        </div>
 
-            <button type="submit" class="btn btn-primary" onclick="crearCiudadano()">Crear Ciudadano</button>
-            <button type="button" class="btn btn-danger" onclick="mostrarCiudadanos()">Mostrar Ciudadanos</button>
-        </form>
+                        <button type="submit" class="btn btn-primary" onclick="crearCiudadano()">Crear Ciudadano</button>
+                        <button type="button" class="btn btn-danger" onclick="mostrarCiudadanos()">Mostrar Ciudadanos</button>
+                    </form>
+                </div>
+            </div>
+        </div>  
     `;
 }
 
