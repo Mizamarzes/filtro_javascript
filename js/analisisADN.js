@@ -3,21 +3,26 @@
 const loadFormAnalisisAdn = ()=>{
     const formAnalisis = document.getElementById('show-info');
     formAnalisis.innerHTML=`
-        <form>
+        <div class="col-md-15">
+            <div class="card bg-light">
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="codigoAdnCiudadanoLabel" class="form-label">Codigo ADN(Ingrese solamente 1 Y 0): </label>
+                            <input type="number" class="form-control" id="codigoAdnSospechosoInput" minlength="20" required><br>
+                            <button type="submit" class="btn btn-primary" onclick="analisisAdn()">Enviar</button>
+                        </div>
 
-            <div class="mb-3">
-                <label for="codigoAdnCiudadanoLabel" class="form-label">Codigo ADN(Ingrese solamente 1 Y 0): </label>
-                <input type="number" class="form-control" id="codigoAdnSospechosoInput" minlength="20" required><br>
-                <button type="submit" class="btn btn-primary" onclick="analisisAdn()">Enviar</button>
+                        <div class="mb-3>
+                            <label for="resultadosAnalisisAdn" class="form-label">Resultado: </label>
+                            <ul class="mb-5 mt-3" id="listResultadosAnalisisAdn">
+                            
+                            </ul>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <div class="mb-3>
-                <label for="resultadosAnalisisAdn" class="form-label">Resultado: </label>
-                <ul class="mb-5 mt-3" id="listResultadosAnalisisAdn">
-                
-                </ul>
-            </div>
-        </form>
+        </div>
     `;
 }
 
