@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded',async()=>{
     
-    // CIUDADANOS
+    // CARGA LA LISTA DE CIUDADANOS
     await loadJson("ciudadanos", ciudadanosList, "CIUDADANOS");
     
+    // CARGA EL FORMULARIO DE CREAR CIUDADANO
     loadFormCiudadano();
 })

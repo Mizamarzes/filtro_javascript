@@ -29,6 +29,7 @@ const loadFormCiudadano=()=>{
             </div>
 
             <button type="submit" class="btn btn-primary" onclick="crearCiudadano()">Crear Ciudadano</button>
+            <button type="button" class="btn btn-danger" onclick="mostrarCiudadanos()">Mostrar Ciudadanos</button>
         </form>
     `;
 }
@@ -47,7 +48,13 @@ const crearCiudadano=async()=>{
         return;
     }
 
-    // Verificar si el código ADN ya está registrado
+    // Verifica si el código ADN tiene exactamente 20 dígitos y solo contiene 1 y 0
+    if (!/^[01]{20}$/.test(codigoAdn)) {
+        alert("El código ADN debe contener exactamente 20 dígitos y solo puede contener los caracteres 0 y 1.");
+        return;
+    }
+
+    // Verifica si el código ADN ya está registrado
     const codigoAdnExiste = ciudadanosList.some(ciudadano => ciudadano.codigo_adn === codigoAdn);
     if (codigoAdnExiste) {
         alert('El código ADN ingresado ya está registrado. Por favor, ingrese uno nuevo.');
@@ -72,4 +79,29 @@ const crearCiudadano=async()=>{
     alert("Ciudadano creado con exito");
 }
 
+// ------------- CREAR CIUDADANO --------------------------
+
+const mostrarCiudadanos = () =>{
+    const textCiudadanos = document.getElementById('show-info');
+    textCiudadanos.innerHTML=`
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre completo</th>
+                        <th>Direccion</th>
+                        <th>Celular</th>
+                        <th>Codigo ADN</th>
+                        <th>ID</th>
+                    </tr>
+                </thead>
+                <tbody id="ciudadanosTableBody">
+                    
+                </tbody>
+            </table>
+        </div>
+    `;
+    showListInTable("ciudadanos", ciudadanosList, "ciudadanosTableBody", fieldsCiudadanos);
+
+}
 

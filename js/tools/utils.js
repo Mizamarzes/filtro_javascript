@@ -39,12 +39,33 @@ const saveJson= async(url, newItem, messageSecurity)=>{
     }
 }
 
-// ------------- VALIDA QUE SEAN 20 DIGITOS --------------------------
+// ------------- FUNCTION FOR SHOW THE LISTS --------------------------
 
-function validateInput(id) {
-    const input = document.getElementById(id);
-    if (input.value.length < 20) {
-        alert('Por favor, ingrese al menos 20 dígitos, en la seccion codigo ADN');
-        input.focus();
+const fieldsCiudadanos = [
+    "id", "nombre_completo", "direccion", "celular", "codigo_adn"
+]
+
+const showListInTable = async (url, dataList, tableBodyId, fields) => {
+    await loadJson(url, dataList, "LISTA");
+    const tableBody = document.getElementById(tableBodyId);
+    tableBody.innerHTML = '';
+
+    for (const dataItem of dataList) {
+        const tr = document.createElement('tr');
+        let rowData = '';
+        for (const field of fields) {
+            if (field === 'class_schedule') {
+                // Procesar el campo class_schedule
+                let scheduleStr = '';
+                for (const schedule of dataItem[field]) {
+                    scheduleStr += `${schedule.day} ${schedule.start_time}-${schedule.end_time} (Salon ${schedule.salon_id})<br>`;
+                }
+                rowData += `<td>${scheduleStr}</td>`;
+            } else {
+                rowData += `<td>${dataItem[field]}</td>`;
+            }
+        }
+        tr.innerHTML = rowData;
+        tableBody.appendChild(tr);
     }
 }

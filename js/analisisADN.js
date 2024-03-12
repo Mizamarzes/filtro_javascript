@@ -7,7 +7,7 @@ const loadFormAnalisisAdn = ()=>{
 
             <div class="mb-3">
                 <label for="codigoAdnCiudadanoLabel" class="form-label">Codigo ADN(Ingrese solamente 1 Y 0): </label>
-                <input type="number" class="form-control" id="codigoAdnCiudadanoInput" minlength="20" required><br>
+                <input type="number" class="form-control" id="codigoAdnSospechosoInput" minlength="20" required><br>
                 <button type="submit" class="btn btn-primary" onclick="analisisAdn()">Enviar</button>
             </div>
 
@@ -21,10 +21,24 @@ const loadFormAnalisisAdn = ()=>{
     `;
 }
 
+// ------------- ANALISIS DE COINCIDENCIAS Y CALCULO DE PORCENTAJES  --------------------------
+
 const analisisAdn = async () => {
     await loadJson("ciudadanos", ciudadanosList, "CIUDADANOS");
 
-    const codigoAdnUsuario = document.getElementById('codigoAdnCiudadanoInput').value;
+    const codigoAdnUsuario = document.getElementById('codigoAdnSospechosoInput').value;
+
+    // Verifica que todos los campos tengan informacion
+    if(!codigoAdnUsuario){
+        alert("Por favor, completa todos los campos");
+        return;
+    }
+
+    // Verifica si el código ADN tiene exactamente 20 dígitos y solo contiene 1 y 0
+    if (!/^[01]{20}$/.test(codigoAdnUsuario)) {
+        alert("El código ADN debe contener exactamente 20 dígitos y solo puede contener los caracteres 0 y 1.");
+        return;
+    }
 
     // Calcular el porcentaje de coincidencia 
     const coincidencias = ciudadanosList.map(ciudadano => {
@@ -47,6 +61,7 @@ const analisisAdn = async () => {
     }
 };
 
+// funcion para calcular el porcentaje de coinicidencia
 const calcularPorcentajeCoincidencia = (codigoUsuario, codigoCiudadano) => {
     let coincidencias = 0;
     for (let i = 0; i < codigoUsuario.length; i++) {
