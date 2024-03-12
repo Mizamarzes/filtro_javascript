@@ -1,0 +1,21 @@
+/* ------------- MAIN SETTINGS ---------------- */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+body{
+    background-color: #000;
+    color: white;
+}
+
+section{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
